@@ -5,7 +5,7 @@
 <c:when test="${!empty empList}">
 <table border="1" bgcolor="green" align="center">
 <tr>
-<th>empno</th><th>emp name</th><th>emp desg</th><th>emp salary</th><th>deptno</th><th>operations</th>
+<th>empno</th><th>emp name</th><th>emp job</th><th>emp salary</th><th>deptno</th><th>operations</th>
 </tr>
 
 <c:forEach var="emp" items="${empList}">
@@ -15,7 +15,9 @@
 <td>${emp.job}</td>
 <td>${emp.sal}</td>
 <td>${emp.deptno}</td>
-<td></td>
+<td><a href="edit?no=${emp.empno}"><img  src="images/edit.png" height="30px" width="30px">&nbsp;&nbsp;&nbsp;</a>
+         <a href="delete?no=${emp.empno}" onclick="return confirm('are you sure to delete???')"><img  src="images/delete.png" height="30px" width="30px"></a>
+</td>
 </tr>
 </c:forEach>
 
@@ -27,4 +29,12 @@
 
 </c:choose>
 <br><br><br><br>
-<center><a href="./">home<image src"images/home.jpg" width="100px"height="100px"></image></a></center>
+
+<h2 style="color:green;text-align:center">${resultMsg}</h2>
+
+<center><a href="register">Register Employee<br><br><image src="images/add.png" width="100px"height="100px"></image></a></center>
+
+<br>
+
+
+<center><a href="./">home<br><br><image src="images/home.jpg" width="100px"height="100px"></image></a></center>
